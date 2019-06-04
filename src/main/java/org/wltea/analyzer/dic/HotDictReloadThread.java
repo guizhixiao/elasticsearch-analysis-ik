@@ -11,9 +11,9 @@ public class HotDictReloadThread implements Runnable {
     public void run() {
         while(true) {
             try {
+                Dictionary.getSingleton().reLoadMainDict();
                 Thread.sleep(Dictionary.INTERVAL);
                 logger.info("[==========]reload hot dict from mysql......");
-                Dictionary.getSingleton().reLoadMainDict();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
